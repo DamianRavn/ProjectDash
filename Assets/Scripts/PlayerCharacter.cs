@@ -98,6 +98,6 @@ public class PlayerCharacter : BaseDashMechanic
 
     private Vector3 MouseDirection()
     {
-        return (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+        return ExtensionMethods.MouseToWorldPos2D() - (Vector2)transform.position;
     }
 }

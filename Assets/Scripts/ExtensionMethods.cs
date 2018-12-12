@@ -49,4 +49,9 @@ public static class ExtensionMethods
         }
         return comp as T;
     }
+
+    public static Vector2 MouseToWorldPos2D()
+    {
+        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
 }

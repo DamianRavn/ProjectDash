@@ -11,7 +11,9 @@ public class EventManager : MonoBehaviour
     public static event ClickAction OnClick;
     public static event ClickAction OnClickMovement;
 
-    private Vector3 oldMousePos;
+    //onclickmovement variables
+    private Bounds breathingRoom;
+    public Vector3 boundsSize;
 
     void Awake()
     {
@@ -37,19 +39,19 @@ public class EventManager : MonoBehaviour
             {
                 OnClick();
             }
-
-            
         }
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            if (oldMousePos != Input.mousePosition)
+            CheckIfBoundsExists();
+            if (!breathingRoom.Contains(ExtensionMethods.MouseToWorldPos2D()))
             {
+                print(string.Format("boundsPos: {0}, mousePos: {1}", breathingRoom.center, ExtensionMethods.MouseToWorldPos2D()));
                 if (OnClickMovement != null)
                 {
                     OnClickMovement();
                 }
-                oldMousePos = Input.mousePosition;
+                breathingRoom.center = ExtensionMethods.MouseToWorldPos2D();
             }
         }
 
@@ -61,4 +63,13 @@ public class EventManager : MonoBehaviour
                 OnClicked();
         }
     }
+
+    private void CheckIfBoundsExists()
+    {
+        if (breathingRoom == null)
+        {
+            breathingRoom = new Bounds(ExtensionMethods.MouseToWorldPos2D(), boundsSize);
+        }
+    }
+
 }

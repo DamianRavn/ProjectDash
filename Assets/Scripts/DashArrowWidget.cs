@@ -63,7 +63,7 @@ public class DashArrowWidget : MonoBehaviour
         RotateTowards(data.NormalizedDirection);
         MoveToPosition(center, data.NormalizedDirection);
         SetDissolveValue(FindDissolveValue(ref data));
-        StartArcRender(data);
+        StartCoroutine(ArcRender(data));
     }
 
     private void RotateTowards(Vector3 normalizedDir)
@@ -131,12 +131,9 @@ public class DashArrowWidget : MonoBehaviour
 
     private IEnumerator ArcRender(DashPointData data)
     {
-        isRenderingArc = true;
-        yield return new WaitForSeconds(2);
         arcRender.ResetPos(FindArcRenderStartPos(data));
         yield return new WaitForEndOfFrame();
         arcRender.RenderArc(data);
-        isRenderingArc = false;
     }
 
     public void Visible()

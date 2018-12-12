@@ -13,7 +13,6 @@ public class EventManager : MonoBehaviour
 
     //onclickmovement variables
     private Bounds breathingRoom;
-    public Vector3 boundsSize;
 
     void Awake()
     {
@@ -31,6 +30,11 @@ public class EventManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        OnClick += CreateBoundsForMousePos;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -43,15 +47,14 @@ public class EventManager : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            CheckIfBoundsExists();
-            if (!breathingRoom.Contains(ExtensionMethods.MouseToWorldPos2D()))
+            if (!breathingRoom.Contains(Input.mousePosition))
             {
-                print(string.Format("boundsPos: {0}, mousePos: {1}", breathingRoom.center, ExtensionMethods.MouseToWorldPos2D()));
+                print(string.Format("boundsPos: {0}, mousePos: {1}", breathingRoom.center, Input.mousePosition));
                 if (OnClickMovement != null)
                 {
                     OnClickMovement();
                 }
-                breathingRoom.center = ExtensionMethods.MouseToWorldPos2D();
+                breathingRoom.center = Input.mousePosition;
             }
         }
 
@@ -64,12 +67,12 @@ public class EventManager : MonoBehaviour
         }
     }
 
-    private void CheckIfBoundsExists()
+    private void CreateBoundsForMousePos()
     {
-        if (breathingRoom == null)
-        {
-            breathingRoom = new Bounds(ExtensionMethods.MouseToWorldPos2D(), boundsSize);
-        }
+        var boundsSize = new Vector3(18, 18, 0);
+        breathingRoom = new Bounds(Input.mousePosition, boundsSize);
+        OnClick -= CreateBoundsForMousePos; //This is only needed on first click
+        
     }
 
 }

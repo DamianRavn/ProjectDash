@@ -27,10 +27,8 @@ public class DashArrowWidget : MonoBehaviour
 
     private bool isRenderingArc = false;
 
-    public void OnContact(Vector2 parent, ref DashPointData data)
+    public void OnContact(Vector2 center, ref DashPointData data)
     {
-        Vector2 center = parent;
-
         PointInDirection(center, ref data);
     }
 
@@ -134,7 +132,7 @@ public class DashArrowWidget : MonoBehaviour
     private IEnumerator ArcRender(DashPointData data)
     {
         isRenderingArc = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         arcRender.ResetPos(FindArcRenderStartPos(data));
         yield return new WaitForEndOfFrame();
         arcRender.RenderArc(data);
@@ -144,12 +142,12 @@ public class DashArrowWidget : MonoBehaviour
     public void Visible()
     {
         SetVisibility(true);
-        arcRender.Reset();
+        //arcRender.Reset();
     }
     public void Invisible()
     {
         SetVisibility(false);
-        arcRender.Reset();
+        //arcRender.Reset();
     }
 
     private void SetVisibility(bool visible)

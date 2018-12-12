@@ -53,14 +53,14 @@ public class PlayerCharacter : BaseDashMechanic
     {
         if (dashArrowWidget == null)
         {
-            dashArrowWidget = dashArrow.InstantiateArrow(transform);
+            dashArrowWidget = dashArrow.InstantiateArrow(render, dashData);
         }
         else
         {
             dashArrowWidget.Visible();
         }
 
-        dashArrowWidget.OnInstantiate(render, ref dashData);
+        dashArrowWidget.OnContact(transform.position, ref dashData);
 
         Subscribe();
     }

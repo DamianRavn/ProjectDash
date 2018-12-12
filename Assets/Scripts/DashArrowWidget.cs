@@ -24,20 +24,27 @@ public class DashArrowWidget : MonoBehaviour
 
     private float smoothTime = 0.01F;
     private Vector3 velocity = Vector3.zero;
-    
 
-    public void OnInstantiate(Renderer parent, ref DashPointData data)
+    private bool isRenderingArc = false;
+
+    public void OnContact(Vector2 parent, ref DashPointData data)
+    {
+        Vector2 center = parent;
+
+        PointInDirection(center, ref data);
+    }
+
+    public void OnInstantiate(Renderer parent, DashPointData data)
     {
         minDistance = FindMinDist(parent);
         arrowTipDis = FindRenderTipDistance();
         //Half of the biggest side to get the tip of the arrow, then a number to how far away from the tip is the 0 point
         powerMinDistance = FindRenderTipDistance() + zeroPoint;
-        Vector2 center = parent.transform.position;
-        
-        PointInDirection(center, ref data);
-        
+
+        arcRender = arcRenderPrefab.OnInstantiate(FindArcRenderStartPos(data), data, transform);
     }
-    
+
+
     private float FindRenderTipDistance()
     {
         return ((thisRendere.bounds.size.x > thisRendere.bounds.size.y ? thisRendere.bounds.size.x : thisRendere.bounds.size.y) / 2);
@@ -58,7 +65,7 @@ public class DashArrowWidget : MonoBehaviour
         RotateTowards(data.NormalizedDirection);
         MoveToPosition(center, data.NormalizedDirection);
         SetDissolveValue(FindDissolveValue(ref data));
-        StartCoroutine(ArcRender(data));
+        StartArcRender(data);
     }
 
     private void RotateTowards(Vector3 normalizedDir)
@@ -109,17 +116,29 @@ public class DashArrowWidget : MonoBehaviour
         arrowFillRendere.material.SetFloat("_DissolveValue", newValue);
     }
 
+    private void StartArcRender(DashPointData data)
+    {
+        if (isRenderingArc)
+        {
+            StopCoroutine("ArcRender");
+            isRenderingArc = false;
+            arcRender.Reset();
+        }
+        else
+        {
+            StartCoroutine(ArcRender(data));
+        }
+        
+    }
+
     private IEnumerator ArcRender(DashPointData data)
     {
-        if (arcRender == null)
-        {
-            arcRender = arcRenderPrefab.OnInstantiate(FindArcRenderStartPos(data), data, transform);
-        }
-
+        isRenderingArc = true;
+        yield return new WaitForSeconds(1);
         arcRender.ResetPos(FindArcRenderStartPos(data));
         yield return new WaitForEndOfFrame();
         arcRender.RenderArc(data);
-        
+        isRenderingArc = false;
     }
 
     public void Visible()

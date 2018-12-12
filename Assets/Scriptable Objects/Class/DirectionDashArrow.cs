@@ -7,8 +7,10 @@ public class DirectionDashArrow : ScriptableObject
 {
     public DashArrowWidget arrow;
     
-    public DashArrowWidget InstantiateArrow(Transform parent)
+    public DashArrowWidget InstantiateArrow(Renderer parent, DashPointData data)
     {
-        return Instantiate(arrow, parent);
+        DashArrowWidget aw = Instantiate(arrow, parent.transform);
+        aw.OnInstantiate(parent, data);
+        return aw;
     }
 }

@@ -64,6 +64,11 @@ public class BaseDashMechanic : MonoBehaviour
         ThisRigidbody.gravityScale = gravity;
     }
 
+    public void SetTrigger(bool istrigger)
+    {
+        GetComponent<Collider2D>().isTrigger = istrigger;
+    }
+
     public virtual void Unsubscribe()
     {
 

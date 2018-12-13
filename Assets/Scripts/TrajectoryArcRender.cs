@@ -11,6 +11,7 @@ public class TrajectoryArcRender : BaseDashMechanic
     {
         var ar = Instantiate(this, parent);
         ar.ResetPos(pos);
+        ar.SetTrigger(false);
         return ar;
     }
 
@@ -23,11 +24,13 @@ public class TrajectoryArcRender : BaseDashMechanic
     private void StartRender()
     {
         renderingArc(true);
+        SetTrigger(false);
     }
 
     private void StopRender()
     {
         renderingArc(false);
+        SetTrigger(true);
         trailRenderer.Clear();
         
     }

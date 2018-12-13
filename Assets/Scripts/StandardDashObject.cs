@@ -33,10 +33,7 @@ public class StandardDashObject : BaseDashObject
         SetTrigger(false);
     }
 
-    private void SetTrigger(bool istrigger)
-    {
-        GetComponent<Collider2D>().isTrigger = istrigger;
-    }
+    
 
     /// <summary>
     /// When the player collides with DashObject, the player gets data

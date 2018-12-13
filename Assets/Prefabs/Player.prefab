@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 50158318842152824}
   - component: {fileID: 58500296009030830}
   - component: {fileID: 114251991607892172}
-  - component: {fileID: 222995412596300486}
   - component: {fileID: 114932531069508336}
   m_Layer: 0
   m_Name: Player
@@ -151,10 +150,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!222 &222995412596300486
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1818737967164416}
-  m_CullTransparentMesh: 0

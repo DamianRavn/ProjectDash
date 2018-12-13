@@ -7,11 +7,11 @@ public class DashPointData
     /// <summary>
     /// An object that only holds data
     /// </summary>
-    /// <param name="force"></param>
+    /// <param name="maxForce"></param>
     /// <param name="direction">Normalized in creation</param>
-    public DashPointData(float force, Vector2 direction, float gravityScale)
+    public DashPointData(float maxForce, Vector2 direction, float gravityScale)
     {
-        MaxForce = force;
+        MaxForce = maxForce;
         MinForce = 0.1f;
         this.GravityScale = gravityScale;
         ChangeDirection(direction);

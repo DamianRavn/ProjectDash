@@ -14,7 +14,7 @@ public class DashArrowWidget : MonoBehaviour
     [SerializeField]
     TrajectoryArcRender arcRenderPrefab;
     TrajectoryArcRender arcRender;
-    private float arrowTipDis;
+    private Vector2 arcRenderStartPos;
 
     public float powerMaxDistance = 5;
     private float powerMinDistance;
@@ -33,6 +33,7 @@ public class DashArrowWidget : MonoBehaviour
     public void OnContact(Vector2 center, ref DashPointData data)
     {
         this.data = data;
+        arcRenderStartPos = center;
         PointInDirection(center, ref data);
     }
 
@@ -40,16 +41,15 @@ public class DashArrowWidget : MonoBehaviour
     {
         this.data = data;
         minDistance = FindMinDist(parent);
-        arrowTipDis = FindRenderTipDistance();
+        arcRenderStartPos = parent.transform.position;
         //Half of the biggest side to get the tip of the arrow, then a number to how far away from the tip is the 0 point
         powerMinDistance = FindRenderTipDistance() + zeroPoint;
 
-        arcRender = arcRenderPrefab.OnInstantiate(FindArcRenderStartPos(data), transform);
+        arcRender = arcRenderPrefab.OnInstantiate(arcRenderStartPos, transform);
 
         //These two events keep each other up to date
         renderArcEvent = delegate 
         {
-            print(this.data.Force + " "+ this.data.NormalizedDirection);
             StartCoroutine(ArcRender(this.data));
             EventManager.OnClickMovement += subscribeArcEvent;
             EventManager.OnClickMouseUnmoving -= renderArcEvent;
@@ -66,10 +66,6 @@ public class DashArrowWidget : MonoBehaviour
     private float FindRenderTipDistance()
     {
         return ((thisRendere.bounds.size.x > thisRendere.bounds.size.y ? thisRendere.bounds.size.x : thisRendere.bounds.size.y) / 2);
-    }
-    private Vector3 FindArcRenderStartPos(DashPointData data)
-    {
-        return (Vector2)transform.position + (data.NormalizedDirection * arrowTipDis);
     }
 
     private float FindMinDist(Renderer parent)
@@ -137,7 +133,7 @@ public class DashArrowWidget : MonoBehaviour
 
     private IEnumerator ArcRender(DashPointData data)
     {
-        arcRender.ResetPos(FindArcRenderStartPos(data));
+        arcRender.ResetPos(arcRenderStartPos);
         yield return new WaitForEndOfFrame();
         arcRender.RenderArc(data);
         

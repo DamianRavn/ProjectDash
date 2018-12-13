@@ -27,9 +27,10 @@ public class PlayerCharacter : BaseDashMechanic
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DashPoint")
+        var dashObject = collision.gameObject.GetComponent<BaseDashMechanic>();
+        if (dashObject != null)
         {
-            collision.gameObject.GetComponent<StandardDashObject>().PlayerLeaving();
+            dashObject.SetTrigger(false);
         }
     }
 

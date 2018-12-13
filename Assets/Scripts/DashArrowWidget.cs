@@ -25,21 +25,41 @@ public class DashArrowWidget : MonoBehaviour
     private float smoothTime = 0.01F;
     private Vector3 velocity = Vector3.zero;
 
-    private bool isRenderingArc = false;
+    private EventManager.ClickAction renderArcEvent;
+    private EventManager.ClickAction subscribeArcEvent;
+    private DashPointData data;
+
 
     public void OnContact(Vector2 center, ref DashPointData data)
     {
+        this.data = data;
         PointInDirection(center, ref data);
     }
 
     public void OnInstantiate(Renderer parent, DashPointData data)
     {
+        this.data = data;
         minDistance = FindMinDist(parent);
         arrowTipDis = FindRenderTipDistance();
         //Half of the biggest side to get the tip of the arrow, then a number to how far away from the tip is the 0 point
         powerMinDistance = FindRenderTipDistance() + zeroPoint;
 
-        arcRender = arcRenderPrefab.OnInstantiate(FindArcRenderStartPos(data), data, transform);
+        arcRender = arcRenderPrefab.OnInstantiate(FindArcRenderStartPos(data), transform);
+
+        //These two events keep each other up to date
+        renderArcEvent = delegate 
+        {
+            print(this.data.Force + " "+ this.data.NormalizedDirection);
+            StartCoroutine(ArcRender(this.data));
+            EventManager.OnClickMovement += subscribeArcEvent;
+            EventManager.OnClickMouseUnmoving -= renderArcEvent;
+        };
+        subscribeArcEvent = delegate
+        {
+            EventManager.OnClickMouseUnmoving += renderArcEvent;
+            EventManager.OnClickMovement -= subscribeArcEvent;
+        };
+        EventManager.OnClickMouseUnmoving += renderArcEvent;
     }
 
 
@@ -62,8 +82,8 @@ public class DashArrowWidget : MonoBehaviour
     {
         RotateTowards(data.NormalizedDirection);
         MoveToPosition(center, data.NormalizedDirection);
-        SetDissolveValue(FindDissolveValue(ref data));
-        StartCoroutine(ArcRender(data));
+        SetDissolveValue(FindForceAndDissolveValue(ref data));
+        arcRender.Reset();
     }
 
     private void RotateTowards(Vector3 normalizedDir)
@@ -85,7 +105,7 @@ public class DashArrowWidget : MonoBehaviour
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    private float FindDissolveValue(ref DashPointData data)
+    private float FindForceAndDissolveValue(ref DashPointData data)
     {
         var powerLevel = DistanceToMouse() - powerMinDistance;
         if (powerLevel >= powerMaxDistance)
@@ -113,37 +133,27 @@ public class DashArrowWidget : MonoBehaviour
         var newValue = Mathf.Clamp(value, 0.01f, 1);
         arrowFillRendere.material.SetFloat("_DissolveValue", newValue);
     }
-
-    private void StartArcRender(DashPointData data)
-    {
-        if (isRenderingArc)
-        {
-            StopCoroutine("ArcRender");
-            isRenderingArc = false;
-            arcRender.Reset();
-        }
-        else
-        {
-            StartCoroutine(ArcRender(data));
-        }
-        
-    }
+    
 
     private IEnumerator ArcRender(DashPointData data)
     {
         arcRender.ResetPos(FindArcRenderStartPos(data));
         yield return new WaitForEndOfFrame();
         arcRender.RenderArc(data);
+        
     }
 
     public void Visible()
     {
         SetVisibility(true);
+        EventManager.OnClickMouseUnmoving += renderArcEvent;
         //arcRender.Reset();
     }
     public void Invisible()
     {
         SetVisibility(false);
+        EventManager.OnClickMouseUnmoving -= renderArcEvent;
+        EventManager.OnClickMovement -= subscribeArcEvent;
         //arcRender.Reset();
     }
 

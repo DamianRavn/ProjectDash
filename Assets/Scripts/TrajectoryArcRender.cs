@@ -7,7 +7,7 @@ public class TrajectoryArcRender : BaseDashMechanic
     [SerializeField]
     TrailRenderer trailRenderer;
 
-    public TrajectoryArcRender OnInstantiate(Vector3 pos, DashPointData data, Transform parent)
+    public TrajectoryArcRender OnInstantiate(Vector3 pos, Transform parent)
     {
         var ar = Instantiate(this, parent);
         ar.ResetPos(pos);

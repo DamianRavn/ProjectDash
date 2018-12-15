@@ -12,7 +12,7 @@ public class DashPointData
     public DashPointData(float maxForce, Vector2 direction, float gravityScale)
     {
         MaxForce = maxForce;
-        MinForce = 0.1f;
+        MinForce = 5f;
         this.GravityScale = gravityScale;
         ChangeDirection(direction);
     }

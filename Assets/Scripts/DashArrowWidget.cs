@@ -158,4 +158,12 @@ public class DashArrowWidget : MonoBehaviour
         thisRendere.enabled = visible;
         arrowFillRendere.enabled = visible;
     }
+
+    public void ResetArcRender()
+    {
+        if (arcRender != null)
+        {
+            arcRender.Reset();
+        }
+    }
 }

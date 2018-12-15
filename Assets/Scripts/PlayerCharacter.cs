@@ -27,10 +27,9 @@ public class PlayerCharacter : BaseDashMechanic
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var dashObject = collision.gameObject.GetComponent<BaseDashMechanic>();
-        if (dashObject != null)
+        if (collision.gameObject.tag == "DashPoint")
         {
-            dashObject.SetTrigger(false);
+            collision.GetComponent<StandardDashObject>().PlayerLeaving();
         }
     }
 
@@ -43,13 +42,7 @@ public class PlayerCharacter : BaseDashMechanic
         ResetForce();
         NullifyGravity();
     }
-
-    public override void Respawn(Vector3 position, Quaternion rotation)
-    {
-        base.Respawn(position, rotation);
-        RespawnManager.respawnManagerInstance.RespawnAllExceptThis(GetComponent<RespawnInstance>());
-    }
-
+    
     public void Prepare()
     {
         if (dashArrowWidget == null)
@@ -100,5 +93,12 @@ public class PlayerCharacter : BaseDashMechanic
     private Vector3 MouseDirection()
     {
         return ExtensionMethods.MouseToWorldPos2D() - (Vector2)transform.position;
+    }
+
+    public override void Respawn(Vector3 position, Quaternion rotation)
+    {
+        base.Respawn(position, rotation);
+        RespawnManager.respawnManagerInstance.RespawnAllExceptThis(GetComponent<RespawnInstance>());
+        dashArrowWidget.ResetArcRender();
     }
 }

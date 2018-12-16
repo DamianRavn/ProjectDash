@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\RespawnInstance.cs" />
     <Compile Include="Assets\Scripts\RespawnManager.cs" />
     <Compile Include="Assets\Scripts\StandardDashObject.cs" />
+    <Compile Include="Assets\Scripts\StandardEnemy.cs" />
     <Compile Include="Assets\Scripts\StopArcRenderOnWall.cs" />
     <Compile Include="Assets\Scripts\TempRespawn.cs" />
     <Compile Include="Assets\Scripts\TrajectoryArcRender.cs" />

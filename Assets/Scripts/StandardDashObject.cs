@@ -40,7 +40,7 @@ public class StandardDashObject : BaseDashObject
     /// </summary>
     public override DashPointData GetData()
     {
-        var dashData = new DashPointData(standardForce.force, Vector2.up, standardGravity.gravity);
+        var dashData = new DashPointData(standardForce.force, Vector2.up + Vector2.right, standardGravity.gravity);
         return dashData;
     }
 }

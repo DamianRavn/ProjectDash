@@ -143,14 +143,12 @@ public class DashArrowWidget : MonoBehaviour
     {
         SetVisibility(true);
         EventManager.OnClickMouseUnmoving += renderArcEvent;
-        //arcRender.Reset();
     }
     public void Invisible()
     {
         SetVisibility(false);
         EventManager.OnClickMouseUnmoving -= renderArcEvent;
         EventManager.OnClickMovement -= subscribeArcEvent;
-        //arcRender.Reset();
     }
 
     private void SetVisibility(bool visible)

@@ -17,7 +17,7 @@ public class PlayerCharacter : BaseDashMechanic
     BaseDashObject currentDashObject;
     
     
-    private void OnTriggerEnter2D(Collider2D collision)
+    /*private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "DashPoint")
         {
@@ -31,11 +31,11 @@ public class PlayerCharacter : BaseDashMechanic
         {
             collision.GetComponent<StandardDashObject>().PlayerLeaving();
         }
-    }
+    }*/
 
-    private void onDashCollision(GameObject collision)
+    public void onDashCollision(BaseDashObject dashObject)
     {
-        currentDashObject = collision.GetComponent<BaseDashObject>();
+        currentDashObject = dashObject;
         dashData = currentDashObject.GetData();
         
         Prepare();

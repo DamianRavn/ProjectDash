@@ -72,12 +72,13 @@
     <Compile Include="Assets\Scripts\DissolvingShader.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
+    <Compile Include="Assets\Scripts\NearDashObjectEvent.cs" />
     <Compile Include="Assets\Scripts\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\RespawnInstance.cs" />
     <Compile Include="Assets\Scripts\RespawnManager.cs" />
     <Compile Include="Assets\Scripts\StandardDashObject.cs" />
     <Compile Include="Assets\Scripts\StandardEnemy.cs" />
-    <Compile Include="Assets\Scripts\StopArcRenderOnWall.cs" />
+    <Compile Include="Assets\Scripts\StopProjectilesOnWall.cs" />
     <Compile Include="Assets\Scripts\TempRespawn.cs" />
     <Compile Include="Assets\Scripts\TrajectoryArcRender.cs" />
     <Reference Include="Unity.RenderPipelines.Core.Editor">

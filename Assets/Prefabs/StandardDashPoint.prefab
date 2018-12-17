@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114892091896259656}
   - component: {fileID: 50848904173721272}
   - component: {fileID: 114886048506514820}
+  - component: {fileID: 114056344787070902}
   m_Layer: 0
   m_Name: StandardDashPoint
   m_TagString: DashPoint
@@ -126,6 +127,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &114056344787070902
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1769240345156540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f2756b71d907a94395532cf509873b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114529174724818584
 MonoBehaviour:
   m_ObjectHideFlags: 1

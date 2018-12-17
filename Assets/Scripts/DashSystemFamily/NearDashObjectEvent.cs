@@ -24,16 +24,19 @@ public class NearDashObjectEvent : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            if (player != null)
-            {
-                player = null;
-                EventManager.OnClick -= closeEnoughToDash;
-            }
-            else
-            {
-                baseDashMechanic.SetTrigger(false);
-            }
+            return;
         }
+
+        if (player != null)
+        {
+            player = null;
+            EventManager.OnClick -= closeEnoughToDash;
+        }
+        else
+        {
+            baseDashMechanic.SetTrigger(false);
+        }
+        
        
     }
 

@@ -22,9 +22,7 @@ public class StandardDashObject : BaseDashObject
     public override void Respawn(Vector3 position, Quaternion rotation)
     {
         base.Respawn(position, rotation);
-        SetTrigger(true);
-        print("object is respawning. trigger is: " + ThisCollider.isTrigger);
-        NullifyGravity();
+        OnPlayerContact();
     }
 
     

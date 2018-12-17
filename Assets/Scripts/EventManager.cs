@@ -13,7 +13,7 @@ public class EventManager : MonoBehaviour
     public static event ClickAction OnClickMouseUnmoving;
 
     //OnClickMouseUnmoving variables
-    private float timeBeforeEvent = 1;
+    private float timeBeforeEvent = 0.7f;
 
     //onclickmovement variables
     private Bounds breathingRoom;

@@ -12,4 +12,11 @@ public abstract class BaseDashObject : BaseDashMechanic
     /// </summary>
     /// <param name="player">given as 'this' from PlayerCharacter script</param>
     public abstract DashPointData GetData();
+
+    public virtual void OnPlayerContact()
+    {
+        SetTrigger(true);
+        NullifyGravity();
+        ResetForce();
+    }
 }

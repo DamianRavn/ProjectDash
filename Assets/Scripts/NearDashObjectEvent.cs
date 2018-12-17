@@ -27,11 +27,11 @@ public class NearDashObjectEvent : MonoBehaviour
             if (player != null)
             {
                 player = null;
-                EventManager.OnClick -= closeEnoughToDash; print("player is not null. trigger is: " + baseDashMechanic.ThisCollider.isTrigger);
+                EventManager.OnClick -= closeEnoughToDash;
             }
             else
             {
-                baseDashMechanic.SetTrigger(false); print("player is null. trigger is: " + baseDashMechanic.ThisCollider.isTrigger);
+                baseDashMechanic.SetTrigger(false);
             }
         }
        

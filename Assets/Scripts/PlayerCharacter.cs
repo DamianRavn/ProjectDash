@@ -20,7 +20,8 @@ public class PlayerCharacter : BaseDashMechanic
     {
         currentDashObject = dashObject;
         dashData = currentDashObject.GetData();
-        
+
+        currentDashObject.OnPlayerContact();
         Prepare();
         ResetForce();
         NullifyGravity();

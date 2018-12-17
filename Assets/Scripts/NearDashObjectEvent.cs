@@ -15,23 +15,32 @@ public class NearDashObjectEvent : MonoBehaviour
         if (col != null)
         {
             player = col;
-            EventManager.OnClick += closeEnoughtToDash;
+            EventManager.OnClick += closeEnoughToDash;
         }
         
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (player != null)
+        if (collision.tag == "Player")
         {
-            EventManager.OnClick -= closeEnoughtToDash;
+            if (player != null)
+            {
+                player = null;
+                EventManager.OnClick -= closeEnoughToDash; print("player is not null. trigger is: " + baseDashMechanic.ThisCollider.isTrigger);
+            }
+            else
+            {
+                baseDashMechanic.SetTrigger(false); print("player is null. trigger is: " + baseDashMechanic.ThisCollider.isTrigger);
+            }
         }
+       
     }
 
-    private void closeEnoughtToDash()
+    private void closeEnoughToDash()
     {
         player.onDashCollision(baseDashMechanic);
         player = null;
-        EventManager.OnClick -= closeEnoughtToDash;
+        EventManager.OnClick -= closeEnoughToDash;
     }
 }

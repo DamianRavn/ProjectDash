@@ -6,6 +6,8 @@ public class BaseDashMechanic : MonoBehaviour
 {
     [SerializeField]
     private Rigidbody2D thisRigidbody;
+    [SerializeField]
+    private Collider2D thisCollider;
 
     public Rigidbody2D ThisRigidbody
     {
@@ -18,7 +20,19 @@ public class BaseDashMechanic : MonoBehaviour
             thisRigidbody = value;
         }
     }
-    
+
+    public Collider2D ThisCollider
+    {
+        get
+        {
+            return thisCollider;
+        }
+
+        set
+        {
+            thisCollider = value;
+        }
+    }
 
     public virtual void DashFromObject(DashPointData data)
     {
@@ -66,7 +80,7 @@ public class BaseDashMechanic : MonoBehaviour
 
     public void SetTrigger(bool istrigger)
     {
-        GetComponent<Collider2D>().isTrigger = istrigger;
+        ThisCollider.isTrigger = istrigger;
     }
 
     public virtual void Unsubscribe()

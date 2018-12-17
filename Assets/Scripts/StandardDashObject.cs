@@ -9,8 +9,7 @@ public class StandardDashObject : BaseDashObject
 
     [SerializeField]
     private Gravity standardGravity;
-
-
+    
 
     /// <summary>
     /// Used to dash from objects
@@ -24,13 +23,8 @@ public class StandardDashObject : BaseDashObject
     {
         base.Respawn(position, rotation);
         SetTrigger(true);
+        print("object is respawning. trigger is: " + ThisCollider.isTrigger);
         NullifyGravity();
-    }
-
-
-    public void PlayerLeaving()
-    {
-        SetTrigger(false);
     }
 
     

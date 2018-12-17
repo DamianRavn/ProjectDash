@@ -6,9 +6,9 @@ public class StopProjectilesOnWall : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Projectile")
+        if (collision.tag == "Projectile")
         {
-            collision.gameObject.GetComponent<RespawnInstance>().Respawn();
+            collision.GetComponent<RespawnInstance>().Respawn();
         }
     }
 }

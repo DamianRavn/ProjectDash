@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scriptable Objects\Class\Force.cs" />
     <Compile Include="Assets\Scriptable Objects\Class\Gravity.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystem.cs" />
+    <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemArcRender.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemDashObject.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemEnemy.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemPlayer.cs" />

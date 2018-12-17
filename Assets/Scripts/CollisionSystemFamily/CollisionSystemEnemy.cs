@@ -13,6 +13,10 @@ public class CollisionSystemEnemy : CollisionSystem
         }
     }
 
+    public override void ArcRenderCollision(CollisionSystem cs)
+    {
+    }
+
     public override void DashObjectCollision(CollisionSystem cs)
     {
         GetComponent<RespawnInstance>().Respawn();

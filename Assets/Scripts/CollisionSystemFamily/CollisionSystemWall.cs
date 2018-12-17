@@ -33,4 +33,8 @@ public class CollisionSystemWall : CollisionSystem
     public override void WallCollision(CollisionSystem cs)
     {
     }
+
+    public override void ArcRenderCollision(CollisionSystem cs)
+    {
+    }
 }

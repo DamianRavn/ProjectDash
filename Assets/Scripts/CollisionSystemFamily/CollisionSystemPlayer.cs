@@ -13,6 +13,10 @@ public class CollisionSystemPlayer : CollisionSystem
         }
     }
 
+    public override void ArcRenderCollision(CollisionSystem cs)
+    {
+    }
+
     public override void DashObjectCollision(CollisionSystem cs)
     {
         print("collided with: dashobject");

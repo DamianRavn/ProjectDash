@@ -13,6 +13,10 @@ public class CollisionSystemDashObject : CollisionSystem
         }
     }
 
+    public override void ArcRenderCollision(CollisionSystem cs)
+    {
+    }
+
     public override void DashObjectCollision(CollisionSystem cs)
     {
     }
@@ -24,6 +28,7 @@ public class CollisionSystemDashObject : CollisionSystem
 
     public override void PlayerCollision(CollisionSystem cs)
     {
+        print("collided with: player");
     }
 
     public override void ProjectileCollision(CollisionSystem cs)

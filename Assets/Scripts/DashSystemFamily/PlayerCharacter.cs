@@ -83,6 +83,7 @@ public class PlayerCharacter : BaseDashMechanic
     {
         base.Respawn(position, rotation);
         RespawnManager.respawnManagerInstance.RespawnAllExceptThis(GetComponent<RespawnInstance>());
-        dashArrowWidget.ResetArcRender();
+        if (dashArrowWidget != null)
+            dashArrowWidget.ResetArcRender();
     }
 }

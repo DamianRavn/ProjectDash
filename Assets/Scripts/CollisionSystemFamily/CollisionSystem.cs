@@ -4,9 +4,10 @@ using UnityEngine;
 
 public abstract class CollisionSystem : MonoBehaviour
 {
-    public abstract void EnemyCollision(CollisionSystem cs);
-    public abstract void PlayerCollision(CollisionSystem cs);
-    public abstract void DashObjectCollision(CollisionSystem cs);
-    public abstract void ProjectileCollision(CollisionSystem cs);
-    public abstract void WallCollision(CollisionSystem cs);
+    public virtual void EnemyCollision(CollisionSystem cs){}
+    public virtual void PlayerCollision(CollisionSystem cs){}
+    public virtual void DashObjectCollision(CollisionSystem cs){}
+    public virtual void ProjectileCollision(CollisionSystem cs){}
+    public virtual void WallCollision(CollisionSystem cs){}
+    public virtual void ArcRenderCollision(CollisionSystem cs){}
 }

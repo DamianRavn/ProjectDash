@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 96658687241707104}
   - component: {fileID: 58084690971749044}
   - component: {fileID: 114883299931473374}
+  - component: {fileID: 114770280359684114}
   m_Layer: 0
   m_Name: ArcRender
-  m_TagString: Projectile
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +193,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisRigidbody: {fileID: 50810147105681274}
+  thisCollider: {fileID: 0}
   trailRenderer: {fileID: 96658687241707104}
+--- !u!114 &114770280359684114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1350811427847892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed004c2e5102d9747a2773c641ee445f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114883299931473374
 MonoBehaviour:
   m_ObjectHideFlags: 1

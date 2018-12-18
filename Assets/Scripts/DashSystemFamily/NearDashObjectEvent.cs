@@ -14,8 +14,7 @@ public class NearDashObjectEvent : MonoBehaviour
         var col = collision.GetComponent<PlayerCharacter>();
         if (col != null)
         {
-            player = col;
-            EventManager.OnClick += closeEnoughToDash;
+            
         }
         
     }
@@ -30,20 +29,12 @@ public class NearDashObjectEvent : MonoBehaviour
         if (player != null)
         {
             player = null;
-            EventManager.OnClick -= closeEnoughToDash;
+            
         }
         else
         {
-            baseDashMechanic.SetTrigger(false);
+            
         }
-        
-       
     }
-
-    private void closeEnoughToDash()
-    {
-        player.onDashCollision(baseDashMechanic);
-        player = null;
-        EventManager.OnClick -= closeEnoughToDash;
-    }
+    
 }

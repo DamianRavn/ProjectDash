@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemArcRender.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemDashObject.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemEnemy.cs" />
+    <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemNearDashObject.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemPlayer.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemProjectile.cs" />
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemWall.cs" />

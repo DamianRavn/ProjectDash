@@ -9,37 +9,47 @@ public class CollisionSystemPlayer : CollisionSystem
         var otherCol = collision.GetComponent<CollisionSystem>();
         if (otherCol != null)
         {
-            otherCol.PlayerCollision(this);
+            otherCol.PlayerEnter(this);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var otherCol = collision.GetComponent<CollisionSystem>();
+        if (otherCol != null)
+        {
+            otherCol.PlayerExit(this);
         }
     }
 
-    public override void ArcRenderCollision(CollisionSystem cs)
+    public override void EnemyEnter(CollisionSystem cs)
     {
-    }
-
-    public override void DashObjectCollision(CollisionSystem cs)
-    {
-        print("collided with: dashobject");
-    }
-
-    public override void EnemyCollision(CollisionSystem cs)
-    {
+        base.EnemyEnter(cs);
         GetComponent<RespawnInstance>().Respawn();
-        print("collided with: enemy");
     }
 
-    public override void PlayerCollision(CollisionSystem cs)
+    public override void ProjectileEnter(CollisionSystem cs)
     {
-    }
-
-    public override void ProjectileCollision(CollisionSystem cs)
-    {
+        base.ProjectileEnter(cs);
         GetComponent<RespawnInstance>().Respawn();
         print("collided with: projectile");
     }
 
-    public override void WallCollision(CollisionSystem cs)
+    public override void NearDashObjectEnter(CollisionSystem cs)
     {
-        print("collided with: wall");
+        base.NearDashObjectEnter(cs);
+        EventManager.OnClick += closeEnoughToDash;
+    }
+    public override void NearDashObjectExit(CollisionSystem cs)
+    {
+        base.NearDashObjectExit(cs);
+        EventManager.OnClick -= closeEnoughToDash;
+    }
+
+
+
+    private void closeEnoughToDash()
+    {
+        GetComponent<PlayerCharacter>().onDashCollision(baseDashMechanic);
+        EventManager.OnClick -= closeEnoughToDash;
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollisionSystemNearDashObject : CollisionSystem
 {
+    public BaseDashObject baseDashObject;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var otherCol = collision.GetComponent<CollisionSystem>();
@@ -24,6 +26,6 @@ public class CollisionSystemNearDashObject : CollisionSystem
     public override void PlayerExit(CollisionSystem cs)
     {
         base.PlayerExit(cs);
-        baseDashMechanic.SetTrigger(false);
+        baseDashObject.SetTrigger(false);
     }
 }

@@ -12,6 +12,14 @@ public class CollisionSystemArcRender : CollisionSystem
             otherCol.ArcRenderEnter(this);
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var otherCol = collision.GetComponent<CollisionSystem>();
+        if (otherCol != null)
+        {
+            otherCol.ArcRenderExit(this);
+        }
+    }
 
     public override void WallEnter(CollisionSystem cs)
     {

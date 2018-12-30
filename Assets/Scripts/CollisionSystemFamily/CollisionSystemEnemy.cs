@@ -12,6 +12,14 @@ public class CollisionSystemEnemy : CollisionSystem
             otherCol.EnemyEnter(this);
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var otherCol = collision.GetComponent<CollisionSystem>();
+        if (otherCol != null)
+        {
+            otherCol.EnemyExit(this);
+        }
+    }
 
     public override void DashObjectEnter(CollisionSystem cs)
     {

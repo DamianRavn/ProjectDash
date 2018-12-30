@@ -41,7 +41,7 @@ public class EventManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetButtonDown("Fire1"))
         {
             if (OnClick != null)
             {
@@ -49,7 +49,7 @@ public class EventManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetButton("Fire1"))
         {
             if (!breathingRoom.Contains(Input.mousePosition))
             {
@@ -72,7 +72,7 @@ public class EventManager : MonoBehaviour
         }
 
 
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetButtonUp("Fire1"))
         {
             CancelInvoke();
             if(OnClicked != null)

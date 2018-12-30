@@ -12,4 +12,13 @@ public class CollisionSystemWall : CollisionSystem
             otherCol.WallEnter(this);
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        var otherCol = collision.GetComponent<CollisionSystem>();
+        if (otherCol != null)
+        {
+            otherCol.WallExit(this);
+        }
+    }
 }

@@ -1,23 +1,14 @@
-Base path: D:/GameEngines/Unity 2018/Editor/Data
+Base path: D:/Documents/UnityDashVersion/Editor/Data
 Cmd: initializeCompiler
 Cmd: compileComputeKernel
-  api=9 insize=5004 outsize=8153 ok=1
+  api=4 insize=4845 outsize=4101 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=9166 outsize=8677 ok=1
+  api=4 insize=18299 outsize=8545 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=4729 ok=1
+  api=4 insize=1454 outsize=597 ok=1
 Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=6313 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=7485 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=7789 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=9977 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=8077 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=9941 ok=1
-Cmd: compileComputeKernel
-  api=4 insize=16784 outsize=10245 ok=1
+  api=4 insize=2044 outsize=1033 ok=1
+Cmd: initializeCompiler
+Cmd: initializeCompiler
+Cmd: initializeCompiler
 Cmd: initializeCompiler

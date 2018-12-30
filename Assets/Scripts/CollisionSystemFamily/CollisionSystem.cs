@@ -12,6 +12,7 @@ public abstract class CollisionSystem : MonoBehaviour
     public virtual void WallEnter(CollisionSystem cs){}
     public virtual void ArcRenderEnter(CollisionSystem cs){}
     public virtual void NearDashObjectEnter(CollisionSystem cs) { }
+    public virtual void RespawnEnter(CollisionSystem cs) { }
 
     //OnTriggerExit
     public virtual void EnemyExit(CollisionSystem cs) { }
@@ -21,4 +22,5 @@ public abstract class CollisionSystem : MonoBehaviour
     public virtual void WallExit(CollisionSystem cs) { }
     public virtual void ArcRenderExit(CollisionSystem cs) { }
     public virtual void NearDashObjectExit(CollisionSystem cs) { }
+    public virtual void RespawnExit(CollisionSystem cs) { }
 }

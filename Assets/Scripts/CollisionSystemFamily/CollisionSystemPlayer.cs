@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CollisionSystemPlayer : CollisionSystem
 {
+    private EventManager.ClickAction fuckingWorkAround;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var otherCol = collision.GetComponent<CollisionSystem>();
@@ -31,25 +33,27 @@ public class CollisionSystemPlayer : CollisionSystem
     {
         base.ProjectileEnter(cs);
         GetComponent<RespawnInstance>().Respawn();
-        print("collided with: projectile");
     }
 
     public override void NearDashObjectEnter(CollisionSystem cs)
     {
         base.NearDashObjectEnter(cs);
-        EventManager.OnClick += closeEnoughToDash;
+        var nearDash = cs as CollisionSystemNearDashObject;
+        fuckingWorkAround = delegate
+        {
+            closeEnoughToDash(nearDash.baseDashObject);
+        };
+        EventManager.OnClick += fuckingWorkAround;
     }
     public override void NearDashObjectExit(CollisionSystem cs)
     {
         base.NearDashObjectExit(cs);
-        EventManager.OnClick -= closeEnoughToDash;
+        EventManager.OnClick -= fuckingWorkAround;
     }
 
-
-
-    private void closeEnoughToDash()
+    private void closeEnoughToDash(BaseDashObject baseDashObject)
     {
-        GetComponent<PlayerCharacter>().onDashCollision(baseDashMechanic);
-        EventManager.OnClick -= closeEnoughToDash;
+        GetComponent<PlayerCharacter>().onDashCollision(baseDashObject);
+        EventManager.OnClick -= fuckingWorkAround;
     }
 }

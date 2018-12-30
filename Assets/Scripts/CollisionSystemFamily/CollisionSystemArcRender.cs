@@ -23,6 +23,13 @@ public class CollisionSystemArcRender : CollisionSystem
 
     public override void WallEnter(CollisionSystem cs)
     {
+        base.WallEnter(cs);
+        GetComponent<RespawnInstance>().Respawn();
+    }
+
+    public override void RespawnEnter(CollisionSystem cs)
+    {
+        base.RespawnEnter(cs);
         GetComponent<RespawnInstance>().Respawn();
     }
 }

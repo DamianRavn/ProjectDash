@@ -35,6 +35,12 @@ public class CollisionSystemPlayer : CollisionSystem
         GetComponent<RespawnInstance>().Respawn();
     }
 
+    public override void RespawnEnter(CollisionSystem cs)
+    {
+        base.RespawnEnter(cs);
+        GetComponent<RespawnInstance>().Respawn();
+    }
+
     public override void NearDashObjectEnter(CollisionSystem cs)
     {
         base.NearDashObjectEnter(cs);
@@ -50,10 +56,12 @@ public class CollisionSystemPlayer : CollisionSystem
         base.NearDashObjectExit(cs);
         EventManager.OnClick -= fuckingWorkAround;
     }
-
+    
     private void closeEnoughToDash(BaseDashObject baseDashObject)
     {
         GetComponent<PlayerCharacter>().onDashCollision(baseDashObject);
         EventManager.OnClick -= fuckingWorkAround;
     }
+
+
 }

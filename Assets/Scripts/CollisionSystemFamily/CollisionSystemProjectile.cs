@@ -45,4 +45,10 @@ public class CollisionSystemProjectile : CollisionSystem
     {
         GetComponent<RespawnInstance>().Respawn();
     }
+
+    public override void RespawnEnter(CollisionSystem cs)
+    {
+        base.RespawnEnter(cs);
+        GetComponent<RespawnInstance>().Respawn();
+    }
 }

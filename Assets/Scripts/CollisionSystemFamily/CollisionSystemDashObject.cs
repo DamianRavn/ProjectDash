@@ -35,4 +35,10 @@ public class CollisionSystemDashObject : CollisionSystem
     {
         GetComponent<StandardDashObject>().SetTrigger(false);
     }
+
+    public override void RespawnEnter(CollisionSystem cs)
+    {
+        base.RespawnEnter(cs);
+        GetComponent<RespawnInstance>().Respawn();
+    }
 }

@@ -12,12 +12,14 @@ public class CollisionSystemRespawn : CollisionSystem
             otherCol.RespawnEnter(this);
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    /*private void OnTriggerExit2D(Collider2D collision)
     {
         var otherCol = collision.GetComponent<CollisionSystem>();
         if (otherCol != null)
         {
             otherCol.RespawnExit(this);
         }
-    }
+    }*/
+
+
 }

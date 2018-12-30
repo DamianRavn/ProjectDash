@@ -294,7 +294,8 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.8980392
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114641180424187288, guid: 13aade0b95ff6244ebb4d097f5297139, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 13aade0b95ff6244ebb4d097f5297139, type: 3}
 --- !u!1001 &487192219
 PrefabInstance:
@@ -1008,7 +1009,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1355652253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0495760288b4fc84ea6f6f64726eac3f, type: 3}
+  m_Script: {fileID: 11500000, guid: cc926461653c317489bf6a918a490133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1402421049

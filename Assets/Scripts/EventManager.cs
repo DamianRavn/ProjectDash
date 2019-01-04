@@ -41,12 +41,14 @@ public class EventManager : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenu.gameIsPaused)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Fire1"))
         {
-            if (OnClick != null)
-            {
-                OnClick();
-            }
+            OnClick?.Invoke();
         }
 
         if (Input.GetButton("Fire1"))
@@ -54,10 +56,7 @@ public class EventManager : MonoBehaviour
             if (!breathingRoom.Contains(Input.mousePosition))
             {
                 //print(string.Format("boundsPos: {0}, mousePos: {1}", breathingRoom.center, Input.mousePosition));
-                if (OnClickMovement != null)
-                {
-                    OnClickMovement();
-                }
+                OnClickMovement?.Invoke();
                 breathingRoom.center = Input.mousePosition;
                 CancelInvoke("UnmovingMouse");
             }
@@ -75,8 +74,7 @@ public class EventManager : MonoBehaviour
         if (Input.GetButtonUp("Fire1"))
         {
             CancelInvoke();
-            if(OnClicked != null)
-                OnClicked();
+            OnClicked?.Invoke();
         }
     }
 
@@ -90,11 +88,8 @@ public class EventManager : MonoBehaviour
 
     private void UnmovingMouse()
     {
-        if (OnClickMouseUnmoving != null)
-        {
-            OnClickMouseUnmoving();
-        }
-        
+        OnClickMouseUnmoving?.Invoke();
+
     }
 
 }

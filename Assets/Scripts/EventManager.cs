@@ -14,6 +14,8 @@ public class EventManager : MonoBehaviour
 
     //OnClickMouseUnmoving variables
     public float timeBeforeEvent = 0.3f;
+    
+    private Camera cam;
 
     //onclickmovement variables
     private Bounds breathingRoom;
@@ -37,11 +39,16 @@ public class EventManager : MonoBehaviour
     private void Start()
     {
         OnClick += CreateBoundsForMousePos;
+        cam = Camera.main;
+    }
+    public Vector2 MouseToWorldPos2D()
+    {
+        return cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void Update()
     {
-        if (PauseMenu.gameIsPaused)
+        if (UIBase.gameIsPaused)
         {
             return;
         }
@@ -89,7 +96,6 @@ public class EventManager : MonoBehaviour
     private void UnmovingMouse()
     {
         OnClickMouseUnmoving?.Invoke();
-
     }
 
 }

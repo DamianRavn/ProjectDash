@@ -76,7 +76,7 @@ public class PlayerCharacter : BaseDashMechanic
 
     private Vector3 MouseDirection()
     {
-        return ExtensionMethods.MouseToWorldPos2D() - (Vector2)transform.position;
+        return EventManager.eventManagerInstance.MouseToWorldPos2D() - (Vector2)transform.position;
     }
 
     public override void Respawn(Vector3 position, Quaternion rotation)

@@ -121,7 +121,7 @@ public class DashArrowWidget : MonoBehaviour
     }
     private float DistanceToMouse()
     {
-        return Vector3.Distance(ExtensionMethods.MouseToWorldPos2D(), (Vector2)transform.position);
+        return Vector3.Distance(EventManager.eventManagerInstance.MouseToWorldPos2D(), (Vector2)transform.position);
     }
     private void SetDataForce(DashPointData data, float newForce)
     {

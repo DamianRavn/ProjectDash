@@ -19,7 +19,7 @@ public abstract class UIBase : MonoBehaviour
         gameIsPaused = false;
     }
 
-    public void ChangeScene(string scene, )
+    public void ChangeScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }

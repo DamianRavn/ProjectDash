@@ -30,11 +30,11 @@ public class DashArrowWidget : MonoBehaviour
     private DashPointData data;
 
 
-    public void OnContact(Vector2 center, ref DashPointData data)
+    public void OnContact(Vector2 center, DashPointData data)
     {
         this.data = data;
         arcRenderStartPos = center;
-        PointInDirection(center, ref data);
+        PointInDirection(center, data);
     }
 
     public void OnInstantiate(Renderer parent, DashPointData data)
@@ -74,11 +74,11 @@ public class DashArrowWidget : MonoBehaviour
         return (thisRendere.bounds.size.x > thisRendere.bounds.size.y ? thisRendere.bounds.size.x : thisRendere.bounds.size.y)/2 + (parent.bounds.size.x > parent.bounds.size.y ? parent.bounds.size.x : parent.bounds.size.y)/2;
     }
 
-    public void PointInDirection(Vector2 center, ref DashPointData data)
+    public void PointInDirection(Vector2 center, DashPointData data)
     {
         RotateTowards(data.NormalizedDirection);
         MoveToPosition(center, data.NormalizedDirection);
-        SetDissolveValue(FindForceAndDissolveValue(ref data));
+        SetDissolveValue(FindForceAndDissolveValue(data));
         arcRender.Reset();
     }
 
@@ -101,27 +101,31 @@ public class DashArrowWidget : MonoBehaviour
     /// </summary>
     /// <param name="data"></param>
     /// <returns></returns>
-    private float FindForceAndDissolveValue(ref DashPointData data)
+    private float FindForceAndDissolveValue(DashPointData data)
     {
         var powerLevel = DistanceToMouse() - powerMinDistance;
         if (powerLevel >= powerMaxDistance)
         {
-            data.Force = data.MaxForce;
+            SetDataForce(data, data.MaxForce);
             return 0.01f;
             
         }
         if (powerLevel <= 0)
         {
-            data.Force = data.MinForce;
+            SetDataForce(data, data.MinForce);
             return 1f;
         }
         var percentage = (powerLevel / powerMaxDistance);
-        data.Force = data.MaxForce * percentage;
+        SetDataForce(data, data.MaxForce * percentage);
         return data.Force.Remap(data.MinForce, data.MaxForce, 1, 0.01f);
     }
     private float DistanceToMouse()
     {
         return Vector3.Distance(ExtensionMethods.MouseToWorldPos2D(), (Vector2)transform.position);
+    }
+    private void SetDataForce(DashPointData data, float newForce)
+    {
+        data.Force = newForce;
     }
 
     private void SetDissolveValue(float value)

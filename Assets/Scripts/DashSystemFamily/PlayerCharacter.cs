@@ -38,7 +38,7 @@ public class PlayerCharacter : BaseDashMechanic
             dashArrowWidget.Visible();
         }
 
-        dashArrowWidget.OnContact(transform.position, ref dashData);
+        dashArrowWidget.OnContact(transform.position, dashData);
 
         Subscribe();
     }
@@ -71,7 +71,7 @@ public class PlayerCharacter : BaseDashMechanic
     private void PointTowardsMouse()
     {
         dashData.ChangeDirection(MouseDirection());
-        dashArrowWidget.PointInDirection(transform.position, ref dashData);
+        dashArrowWidget.PointInDirection(transform.position, dashData);
     }
 
     private Vector3 MouseDirection()

@@ -15,10 +15,7 @@ public class DashArrowWidget : MonoBehaviour
     TrajectoryArcRender arcRenderPrefab;
     TrajectoryArcRender arcRender;
     private Vector2 arcRenderStartPos;
-
-    public float powerMaxDistance = 5;
-    private float powerMinDistance;
-    public float zeroPoint = 0;
+    
 
     private float minDistance;
 
@@ -27,30 +24,29 @@ public class DashArrowWidget : MonoBehaviour
 
     private EventManager.ClickAction renderArcEvent;
     private EventManager.ClickAction subscribeArcEvent;
-    private DashPointData data;
+    private DashPointData dashData;
 
 
-    public void OnContact(Vector2 center, DashPointData data)
+    public void OnContact(Vector2 center, DashPointData dashData)
     {
-        this.data = data;
+        this.dashData = dashData;
         arcRenderStartPos = center;
-        PointInDirection(center, data);
+        PointInDirection(center, dashData);
     }
 
-    public void OnInstantiate(Renderer parent, DashPointData data)
+    public void OnInstantiate(Renderer parent, DashPointData dashData)
     {
-        this.data = data;
+        this.dashData = dashData;
         minDistance = FindMinDist(parent);
         arcRenderStartPos = parent.transform.position;
-        //Half of the biggest side to get the tip of the arrow, then a number to how far away from the tip is the 0 point
-        powerMinDistance = FindRenderTipDistance() + zeroPoint;
+        
 
         arcRender = arcRenderPrefab.OnInstantiate(arcRenderStartPos, transform);
 
         //These two events keep each other up to date
         renderArcEvent = delegate 
         {
-            StartCoroutine(ArcRender(this.data));
+            StartCoroutine(ArcRender(this.dashData));
             EventManager.OnClickMovement += subscribeArcEvent;
             EventManager.OnClickMouseUnmoving -= renderArcEvent;
         };
@@ -62,6 +58,11 @@ public class DashArrowWidget : MonoBehaviour
         EventManager.OnClickMouseUnmoving += renderArcEvent;
     }
 
+    public float PowerMinDist(float zeroPoint)
+    {
+        //Half of the biggest side to get the tip of the arrow, then a number to how far away from the tip is the 0 point
+        return FindRenderTipDistance() + zeroPoint;
+    }
 
     private float FindRenderTipDistance()
     {
@@ -74,11 +75,11 @@ public class DashArrowWidget : MonoBehaviour
         return (thisRendere.bounds.size.x > thisRendere.bounds.size.y ? thisRendere.bounds.size.x : thisRendere.bounds.size.y)/2 + (parent.bounds.size.x > parent.bounds.size.y ? parent.bounds.size.x : parent.bounds.size.y)/2;
     }
 
-    public void PointInDirection(Vector2 center, DashPointData data)
+    public void PointInDirection(Vector2 center, DashPointData dashData)
     {
-        RotateTowards(data.NormalizedDirection);
-        MoveToPosition(center, data.NormalizedDirection);
-        SetDissolveValue(FindForceAndDissolveValue(data));
+        RotateTowards(dashData.NormalizedDirection);
+        MoveToPosition(center, dashData.NormalizedDirection);
+        SetDissolveValue(FindDesolveValue(dashData));
         arcRender.Reset();
     }
 
@@ -96,50 +97,23 @@ public class DashArrowWidget : MonoBehaviour
         transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref velocity, smoothTime);
     }
 
-    /// <summary>
-    /// Uses the max and min powerdistance, and distance to mouse to take percentage of Force and find how big the arrow fill should be
-    /// </summary>
-    /// <param name="data"></param>
-    /// <returns></returns>
-    private float FindForceAndDissolveValue(DashPointData data)
+    private float FindDesolveValue(DashPointData dashData)
     {
-        var powerLevel = DistanceToMouse() - powerMinDistance;
-        if (powerLevel >= powerMaxDistance)
-        {
-            SetDataForce(data, data.MaxForce);
-            return 0.01f;
-            
-        }
-        if (powerLevel <= 0)
-        {
-            SetDataForce(data, data.MinForce);
-            return 1f;
-        }
-        var percentage = (powerLevel / powerMaxDistance);
-        SetDataForce(data, data.MaxForce * percentage);
-        return data.Force.Remap(data.MinForce, data.MaxForce, 1, 0.01f);
-    }
-    private float DistanceToMouse()
-    {
-        return Vector3.Distance(EventManager.eventManagerInstance.MouseToWorldPos2D(), (Vector2)transform.position);
-    }
-    private void SetDataForce(DashPointData data, float newForce)
-    {
-        data.Force = newForce;
+        return dashData.Force.Remap(dashData.MinForce, dashData.MaxForce, 1, 0.01f);
     }
 
-    private void SetDissolveValue(float value)
+    public void SetDissolveValue(float value)
     {
         var newValue = Mathf.Clamp(value, 0.01f, 1);
         arrowFillRendere.material.SetFloat("_DissolveValue", newValue);
     }
     
 
-    private IEnumerator ArcRender(DashPointData data)
+    private IEnumerator ArcRender(DashPointData dashData)
     {
         arcRender.ResetPos(arcRenderStartPos);
         yield return new WaitForEndOfFrame();
-        arcRender.RenderArc(data);
+        arcRender.RenderArc(dashData);
         
     }
 

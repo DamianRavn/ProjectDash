@@ -12,6 +12,11 @@ public class PlayerCharacter : BaseDashMechanic
     [SerializeField]
     Renderer render;
 
+    [SerializeField]
+    private float powerMaxDistance = 5;
+    [SerializeField]
+    private float zeroPoint = 0;
+
     DashPointData dashData;
 
     BaseDashObject currentDashObject;
@@ -70,13 +75,34 @@ public class PlayerCharacter : BaseDashMechanic
     }
     private void PointTowardsMouse()
     {
+        FindForceValue();
         dashData.ChangeDirection(MouseDirection());
         dashArrowWidget.PointInDirection(transform.position, dashData);
+    }
+
+    private void FindForceValue()
+    {
+        var powerLevel = DistanceToMouse() - dashArrowWidget.PowerMinDist(zeroPoint);
+        if (powerLevel >= powerMaxDistance)
+        {
+            dashData.Force = dashData.MaxForce;
+
+        }
+        if (powerLevel <= 0)
+        {
+            dashData.Force = dashData.MinForce;
+        }
+        var percentage = (powerLevel / powerMaxDistance);
+        dashData.Force = dashData.MaxForce * percentage;
     }
 
     private Vector3 MouseDirection()
     {
         return EventManager.eventManagerInstance.MouseToWorldPos2D() - (Vector2)transform.position;
+    }
+    private float DistanceToMouse()//TODO:Regulate
+    {
+        return Vector3.Distance(EventManager.eventManagerInstance.MouseToWorldPos2D(), (Vector2)transform.position);
     }
 
     public override void Respawn(Vector3 position, Quaternion rotation)

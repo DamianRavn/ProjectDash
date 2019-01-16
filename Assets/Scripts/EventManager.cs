@@ -20,6 +20,8 @@ public class EventManager : MonoBehaviour
     //onclickmovement variables
     private Bounds breathingRoom;
 
+    static readonly string Fire1 = "Fire1";
+
     void Awake()
     {
         //Check if instance already exists
@@ -53,12 +55,12 @@ public class EventManager : MonoBehaviour
             return;
         }
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown(Fire1))
         {
             OnClick?.Invoke();
         }
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton(Fire1))
         {
             if (!breathingRoom.Contains(Input.mousePosition))
             {
@@ -78,7 +80,7 @@ public class EventManager : MonoBehaviour
         }
 
 
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp(Fire1))
         {
             CancelInvoke();
             OnClicked?.Invoke();

@@ -5,7 +5,8 @@ Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: DashArrow
   m_Shader: {fileID: 4800000, guid: e9fdf47d29869cb45a06c7f9735ed33d, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -19,6 +20,10 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_12A2E160:
+        m_Texture: {fileID: 2800000, guid: b43387d2ac08c3145923f98e997b3e71, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_34C69232:
         m_Texture: {fileID: 2800000, guid: b43387d2ac08c3145923f98e997b3e71, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -77,6 +82,7 @@ Material:
     m_Floats:
     - Vector1_37C3CC18: 0.02
     - Vector1_713E20D2: 0.02
+    - Vector1_B46B60DA: 0.01
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -100,6 +106,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_27E41409: {r: 4.075472, g: 0.5959416, b: 0.5959416, a: 0}
+    - Color_F5224A6B: {r: 16, g: 0, b: 0, a: 0}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}

@@ -148,6 +148,60 @@
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Entities.Properties">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Entities.Properties.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Properties.Codegen">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Properties.Codegen.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Jobs">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Jobs.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Jobs.Editor">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Jobs.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Editor">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Entities.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.StaticTypeRegistry">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Entities.StaticTypeRegistry.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Properties">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Properties.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Properties.Editor">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Properties.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities.Hybrid">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Entities.Hybrid.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Transforms">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Transforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Transforms.Editor">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Transforms.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Transforms.Hybrid">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/GameEngines/Unity 2018/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
     </Reference>
@@ -360,6 +414,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/PackageCache/com.unity.collections@0.0.9-preview.11/System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/GameEngines/Unity 2018/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

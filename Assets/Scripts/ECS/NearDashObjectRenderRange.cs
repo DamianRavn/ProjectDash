@@ -25,13 +25,7 @@ class NearDashRangeBehavior : ComponentSystem
             if (dist < e.nearDash.rangeObject.range)
             {
                 var colortmp = e.spriteRendere.color;
-                colortmp.a = ExtensionMethods.Remap(dist, 0, e.nearDash.rangeObject.range, 0.3f, 0);
-                e.spriteRendere.color = colortmp;
-            }
-            else
-            {
-                var colortmp = e.spriteRendere.color;
-                colortmp.a = 0;
+                colortmp.a = ExtensionMethods.Remap(dist, 0, e.nearDash.rangeObject.range -0.4f, 0.3f, 0);
                 e.spriteRendere.color = colortmp;
             }
         }

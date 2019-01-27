@@ -2,6 +2,9 @@
 
 public abstract class BaseDashObject : BaseDashMechanic
 {
+    [SerializeField]
+    protected SpriteRenderer nearDashObjectEvent;
+
     /// <summary>
     /// Used to dash from objects
     /// </summary>

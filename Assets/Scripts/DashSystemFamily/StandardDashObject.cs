@@ -22,6 +22,9 @@ public class StandardDashObject : BaseDashObject
     public override void Respawn(Vector3 position, Quaternion rotation)
     {
         base.Respawn(position, rotation);
+        var tmp = nearDashObjectEvent.color;
+        tmp.a = 0;
+        nearDashObjectEvent.color = tmp;
         OnPlayerContact();
     }
 

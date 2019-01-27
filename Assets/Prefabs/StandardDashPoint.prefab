@@ -115,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisRigidbody: {fileID: 50848904173721272}
   thisCollider: {fileID: 58393839599607710}
+  nearDashObjectEvent: {fileID: 212623364125303712}
   standardForce: {fileID: 11400000, guid: 78e376700fa180a4d9a966c00f874af5, type: 2}
   standardGravity: {fileID: 11400000, guid: 79ab5c520e90119448044fb67226538c, type: 2}
 --- !u!50 &50848904173721272
@@ -229,11 +230,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1823754274226554734, guid: c94e174859a48cc48ba914436bf07f67,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.15686275
-      objectReference: {fileID: 0}
     - target: {fileID: 1237726627661788866, guid: c94e174859a48cc48ba914436bf07f67,
         type: 3}
       propertyPath: baseDashObject
@@ -244,6 +240,12 @@ PrefabInstance:
 --- !u!4 &4203353409051882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1995881774851504164, guid: c94e174859a48cc48ba914436bf07f67,
+    type: 3}
+  m_PrefabInstance: {fileID: 1998513064650794190}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &212623364125303712 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1823754274226554734, guid: c94e174859a48cc48ba914436bf07f67,
     type: 3}
   m_PrefabInstance: {fileID: 1998513064650794190}
   m_PrefabAsset: {fileID: 0}

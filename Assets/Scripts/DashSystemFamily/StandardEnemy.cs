@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class StandardEnemy : StandardDashObject
 {
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        
-    }
+    
 }

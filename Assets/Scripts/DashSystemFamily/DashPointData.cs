@@ -9,12 +9,19 @@ public class DashPointData
     /// </summary>
     /// <param name="maxForce"></param>
     /// <param name="direction">Normalized in creation</param>
+
+
     public DashPointData(float maxForce, Vector2 direction, float gravityScale)
     {
         MaxForce = maxForce;
         MinForce = 5f;
         this.GravityScale = gravityScale;
         ChangeDirection(direction);
+    }
+
+    public DashPointData()
+    {
+
     }
 
     private float maxForce;
@@ -43,7 +50,7 @@ public class DashPointData
             return maxForce;
         }
 
-        private set
+        set
         {
             maxForce = value;
         }

@@ -21,15 +21,21 @@ public class PlayerCharacter : BaseDashMechanic
 
     BaseDashObject currentDashObject;
 
+    private void Start()
+    {
+        dashData = new DashPointData();
+    }
+
     public void onDashCollision(BaseDashObject dashObject)
     {
         currentDashObject = dashObject;
-        dashData = currentDashObject.GetData();
+        currentDashObject.GetData(dashData); //gets dashdata from object
 
         currentDashObject.OnPlayerContact();
         Prepare();
         ResetForce();
         NullifyGravity();
+        PointTowardsMouse();
     }
     
     public void Prepare()

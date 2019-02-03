@@ -14,7 +14,7 @@ public abstract class BaseDashObject : BaseDashMechanic
     /// When the player collides with DashObject, the player gives this script
     /// </summary>
     /// <param name="player">given as 'this' from PlayerCharacter script</param>
-    public abstract DashPointData GetData();
+    public abstract void GetData(DashPointData dashData);
 
     public virtual void OnPlayerContact()
     {

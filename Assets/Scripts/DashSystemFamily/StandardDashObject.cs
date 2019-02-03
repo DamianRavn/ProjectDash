@@ -33,9 +33,9 @@ public class StandardDashObject : BaseDashObject
     /// <summary>
     /// When the player collides with DashObject, the player gets data
     /// </summary>
-    public override DashPointData GetData()
+    public override void GetData(DashPointData dashData)
     {
-        var dashData = new DashPointData(standardForce.force, Vector2.up + Vector2.right, standardGravity.gravity);
-        return dashData;
+        dashData.MaxForce = standardForce.force;
+        dashData.GravityScale = standardGravity.gravity;
     }
 }

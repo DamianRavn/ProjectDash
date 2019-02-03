@@ -60,7 +60,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scriptable Objects\Class\DirectionDashArrow.cs" />
     <Compile Include="Assets\Scriptable Objects\Class\Force.cs" />
     <Compile Include="Assets\Scriptable Objects\Class\Gravity.cs" />
     <Compile Include="Assets\Scriptable Objects\Class\NearDashObjectRange.cs" />

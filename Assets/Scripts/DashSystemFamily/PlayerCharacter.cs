@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerCharacter : BaseDashMechanic
 {
     [SerializeField]
-    DirectionDashArrow dashArrow;
     DashArrowWidget dashArrowWidget;
 
     [SerializeField]
@@ -24,6 +23,7 @@ public class PlayerCharacter : BaseDashMechanic
     private void Start()
     {
         dashData = new DashPointData();
+        dashArrowWidget.OnInstantiate(render, dashData);
     }
 
     public void onDashCollision(BaseDashObject dashObject)
@@ -40,14 +40,7 @@ public class PlayerCharacter : BaseDashMechanic
     
     public void Prepare()
     {
-        if (dashArrowWidget == null)
-        {
-            dashArrowWidget = dashArrow.InstantiateArrow(render, dashData);
-        }
-        else
-        {
-            dashArrowWidget.Visible();
-        }
+        dashArrowWidget.Visible();
 
         dashArrowWidget.OnContact(transform.position, dashData);
 

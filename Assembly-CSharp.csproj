@@ -141,6 +141,9 @@
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -174,8 +177,17 @@
     <Reference Include="Unity.Mathematics">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Entities">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Entities.dll</HintPath>
@@ -201,29 +213,17 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Transforms.Hybrid">
-      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Editor">
-      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.InternalAPIEngineBridge.001">
-      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Common.Runtime">
-      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.SpriteShape.Runtime">
-      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.2D.Common.Editor">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
       <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Transforms.Hybrid">
+      <HintPath>E:/Libraries/Documents/GitHub/ProjectDash/Library/ScriptAssemblies/Unity.Transforms.Hybrid.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/GameEngines/Unity 2018/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -97,7 +97,7 @@ public class EventManager : MonoBehaviour
 
     private void UnmovingMouse()
     {
-        OnClickMouseUnmoving?.Invoke();
+        OnClickMouseUnmoving?.Invoke(); print("invoke");
     }
 
 }

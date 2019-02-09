@@ -39,16 +39,15 @@ public class DashArrowWidget : MonoBehaviour
         this.dashData = dashData;
         minDistance = FindMinDist(parent);
         arcRenderStartPos = parent.transform.position;
-        
 
         arcRender = arcRenderPrefab.OnInstantiate(arcRenderStartPos, transform);
 
         //These two events keep each other up to date
         renderArcEvent = delegate 
         {
-            StartCoroutine(ArcRender(this.dashData));
             EventManager.OnClickMovement += subscribeArcEvent;
             EventManager.OnClickMouseUnmoving -= renderArcEvent;
+            StartCoroutine(ArcRender(dashData));
         };
         subscribeArcEvent = delegate
         {
@@ -120,13 +119,10 @@ public class DashArrowWidget : MonoBehaviour
     public void Visible()
     {
         SetVisibility(true);
-        EventManager.OnClickMouseUnmoving += renderArcEvent;
     }
     public void Invisible()
     {
         SetVisibility(false);
-        EventManager.OnClickMouseUnmoving -= renderArcEvent;
-        EventManager.OnClickMovement -= subscribeArcEvent;
     }
 
     private void SetVisibility(bool visible)

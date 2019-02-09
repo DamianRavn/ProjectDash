@@ -85,11 +85,12 @@ public class PlayerCharacter : BaseDashMechanic
         if (powerLevel >= powerMaxDistance)
         {
             dashData.Force = dashData.MaxForce;
-
+            return;
         }
         if (powerLevel <= 0)
         {
             dashData.Force = dashData.MinForce;
+            return;
         }
         var percentage = (powerLevel / powerMaxDistance);
         dashData.Force = dashData.MaxForce * percentage;
@@ -108,10 +109,7 @@ public class PlayerCharacter : BaseDashMechanic
     {
         base.Respawn(position, rotation);
         RespawnManager.respawnManagerInstance.RespawnAllExceptThis(GetComponent<RespawnInstance>());
-        if (dashArrowWidget != null)
-        {
-            dashArrowWidget.ResetArcRender();
-        }
+        dashArrowWidget.ResetArcRender();
             
     }
 }

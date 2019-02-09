@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollisionSystemPlayer : CollisionSystem
 {
     private EventManager.ClickAction fuckingWorkAround;
+    private bool fuckingSecurityAgainstAddingTwoEvents = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,22 +45,30 @@ public class CollisionSystemPlayer : CollisionSystem
     public override void NearDashObjectEnter(CollisionSystem cs)
     {
         base.NearDashObjectEnter(cs);
+        if (fuckingSecurityAgainstAddingTwoEvents )
+        {
+            return;
+        }
+        fuckingSecurityAgainstAddingTwoEvents = true;
         var nearDash = cs as CollisionSystemNearDashObject;
         fuckingWorkAround = delegate
         {
-            closeEnoughToDash(nearDash.baseDashObject);
+            closeEnoughToDash(nearDash.baseDashObject); 
         };
         EventManager.OnClick += fuckingWorkAround;
     }
     public override void NearDashObjectExit(CollisionSystem cs)
     {
         base.NearDashObjectExit(cs);
+        fuckingSecurityAgainstAddingTwoEvents = false;
         EventManager.OnClick -= fuckingWorkAround;
     }
     
     private void closeEnoughToDash(BaseDashObject baseDashObject)
     {
         GetComponent<PlayerCharacter>().onDashCollision(baseDashObject);
+        fuckingSecurityAgainstAddingTwoEvents = false;
+        print("Dashing! " + baseDashObject);
         EventManager.OnClick -= fuckingWorkAround;
     }
 

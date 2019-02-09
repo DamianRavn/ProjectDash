@@ -57,7 +57,7 @@ public class EventManager : MonoBehaviour
 
         if (Input.GetButtonDown(Fire1))
         {
-            OnClick?.Invoke();
+            OnClick?.Invoke();            
         }
 
         if (Input.GetButton(Fire1))
@@ -97,7 +97,7 @@ public class EventManager : MonoBehaviour
 
     private void UnmovingMouse()
     {
-        OnClickMouseUnmoving?.Invoke(); print("invoke");
+        OnClickMouseUnmoving?.Invoke();
     }
 
 }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd8ee95f5a7313489346b310c491d94, type: 3}
   m_Name: StandardForce
   m_EditorClassIdentifier: 
-  force: 10
+  force: 15

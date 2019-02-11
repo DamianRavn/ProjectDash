@@ -5,7 +5,7 @@ using UnityEngine;
 public class DashPointData
 {
     /// <summary>
-    /// An object that only holds data
+    /// An object for direction and force
     /// </summary>
     /// <param name="maxForce"></param>
     /// <param name="direction">Normalized in creation</param>
@@ -24,75 +24,37 @@ public class DashPointData
 
     }
 
-    private float maxForce;
-    private float minForce;
-    private float force;
-    private Vector2 normalizedDirection;
-    private float gravityScale;
-
     public float Force
     {
-        get
-        {
-            return force;
-        }
-
-        set
-        {
-            force = value;
-        }
+        get;
+        set;
     }
 
     public float MaxForce
     {
-        get
-        {
-            return maxForce;
-        }
-
-        set
-        {
-            maxForce = value;
-        }
+        get;
+        set;
     }
 
     public Vector2 NormalizedDirection
     {
-        get
-        {
-            return normalizedDirection;
-        }
+        get;
 
-        private set
-        {
-            normalizedDirection = value;
-        }
+        private set;
     }
 
     public float GravityScale
     {
-        get
-        {
-            return gravityScale;
-        }
+        get;
 
-        set
-        {
-            gravityScale = value;
-        }
+        set;
     }
 
     public float MinForce
     {
-        get
-        {
-            return minForce;
-        }
+        get;
 
-        private set
-        {
-            minForce = value;
-        }
+        private set;
     }
 
     public void ChangeDirection(Vector2 direction)

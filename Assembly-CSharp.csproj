@@ -74,12 +74,14 @@
     <Compile Include="Assets\Scripts\CollisionSystemFamily\CollisionSystemWall.cs" />
     <Compile Include="Assets\Scripts\DashSystemFamily\BaseDashMechanic.cs" />
     <Compile Include="Assets\Scripts\DashSystemFamily\BaseDashObject.cs" />
+    <Compile Include="Assets\Scripts\DashSystemFamily\Dash.cs" />
     <Compile Include="Assets\Scripts\DashSystemFamily\DashArrowWidget.cs" />
     <Compile Include="Assets\Scripts\DashSystemFamily\DashPointData.cs" />
     <Compile Include="Assets\Scripts\DashSystemFamily\PlayerCharacter.cs" />
     <Compile Include="Assets\Scripts\DashSystemFamily\StandardDashObject.cs" />
     <Compile Include="Assets\Scripts\DashSystemFamily\StandardEnemy.cs" />
     <Compile Include="Assets\Scripts\ECS\NearDashObjectRenderRange.cs" />
+    <Compile Include="Assets\Scripts\ECS\NearDashRangeBehavior.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\ExtensionMethods.cs" />
     <Compile Include="Assets\Scripts\Respawn\RespawnInstance.cs" />
